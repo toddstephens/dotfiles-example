@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# Description: Display information about dotfiles setup
+
+dotfiles_dir="$HOME/dotfiles"
+files=$(ls "$dotfiles_dir" | wc -l)
+today=$(date +%Y-%m-%d)
+
+echo "======= Dotfiles Info ======="
+echo "Username          : $USER"
+echo "Dotfiles directory: $dotfiles_dir"
+echo "# of files counted: $files"
+echo "Date              : $today"
+
