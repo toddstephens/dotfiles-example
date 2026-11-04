@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# Description: Link dotfiles to home directory
+
+mkdir ~/.config 2>/dev/null
+
+ln -sf ~/dotfiles/bashrc ~/.bashrc
+ln -sf ~/dotfiles/vimrc ~/.vimrc
+
+echo "Dotfiles linked!"
