@@ -2,9 +2,31 @@
 
 # Description: Link dotfiles to home directory
 
-mkdir ~/.config 2>/dev/null
+link_file () {
+    local src="$1"
+    local dest="$2"
+    ln -sf "$src" "$dest"
+    echo "Linked: $dest"
+}
+# List dotfiles to be linked to home directory here
+dotfiles=(
+	"bashrc"
+	"vimrc"
+	"tmux.conf"
+)
 
-ln -sf ~/dotfiles/bashrc ~/.bashrc
-ln -sf ~/dotfiles/vimrc ~/.vimrc
+# Link dotfiles in home directory
+for file in "${dotfiles[@]}"; do
+    link_file "$HOME/dotfiles/$file" "$HOME/.$file"
+done
 
-echo "Dotfiles linked!"
+# Create $HOME/.config directory if it does not exist
+if [[ ! -d "$HOME/.config" ]]; then
+    mkdir "$HOME/.config"
+    echo "Creating $HOME/.config directory."
+fi
+
+# Link starship to $HOME/.config directory
+# ln -sf $HOME/dotfiles/starship.toml $HOME/.config/starship.toml
+
+echo "Done!"
