@@ -129,3 +129,4 @@ source /usr/lib/git-core/git-sh-prompt
 export GIT_PS1_SHOWDIRTYSTATE=1      # Shows '+' for staged, '*' for unstaged
 export GIT_PS1_SHOWUNTRACKEDFILES=1  # Shows '%' for untracked files
 export GIT_PS1_SHOWUPSTREAM="auto"   # Shows '<' or '>' for upstream divergence
+export PATH="$HOME/.local/bin:$PATH"
